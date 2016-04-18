@@ -1,5 +1,6 @@
 __author__ = 'Tejal'
 
+
 import csv
 import nltk
 from nltk.corpus import stopwords
@@ -10,7 +11,7 @@ import lda
 
 
 dict = {"":{0:0}}
-f = open('C:\\Users\\Tejal\\Documents\\ASU\\2_Spring 2016\\CSE 575 Statistical Machine Learning\\Project\\LDA\\posts100.csv', 'rb')
+f = open('post1606.csv', 'rb')
 reader = csv.reader(f)
 titles = []
 # reader has 3 columns and number of rows is equal to the number of questions
@@ -75,11 +76,14 @@ print(ndarray.shape)
 
 model = lda.LDA(n_topics=10, n_iter=1500, random_state=1)
 model.fit(ndarray.T)  # model.fit_transform(X) is also available
-topic_word = model.topic_word_  # model.components_ also works
+doc_topic = model.doc_topic_  # model.components_ also works
 # n_top_words = 8
 # for i, topic_dist in enumerate(topic_word):
 #     topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words+1):-1]
 #     print('Topic {}: {}'.format(i, ' '.join(topic_words)))
-print(topic_word)
-
+# for prob in doc_topic:
+#     prob = round(prob,5)
+print(doc_topic.shape)
+print(doc_topic)
+np.savetxt("doctopic1606.csv",doc_topic, delimiter=',')
 # np.savetxt("posts100.txt", ndarray, delimiter=',')

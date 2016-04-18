@@ -14,6 +14,8 @@ import numpy as np
 # dict["key"][3]=dict["key"][2]+2
 # print(dict["key"][3])
 
-ndarray = np.array([[1,2,3],[7,8,9]])
-ndarray = np.concatenate((ndarray,[4,5,6]),axis=0)
-print(ndarray)
+# ndarray = np.array([[1,2,3],[7,8,9]])
+# ndarray = np.concatenate((ndarray,[4,5,6]),axis=0)
+# print(ndarray)
+
+print(round(2.87781295,3))
